@@ -6,76 +6,50 @@
 	<windowclass name="char_weapon" merge="join">
 		<script file="campaign/scripts/ammo_weapon.lua" />
 		<sheetdata>
-			<number_charweaponfullattack name="attacks">
-				<anchored to="attackicons" position="over" />
-				<script file="campaign/scripts/ammo_attacks.lua" />
-			</number_charweaponfullattack>		
-			<number_charweaponattacktotal name="attack1">
-				<anchored to="attackframe" position="insidetopleft" offset="3,0" width="27" height="20" />
-				<modifier>0</modifier>
-				<name>Attack 1</name>
-				<source><name>attack1modifier</name><op>+</op></source>
-				<script file="campaign/scripts/ammo_attack.lua" />
-			</number_charweaponattacktotal>
-			<number_charweaponattacktotal name="attack2">
-				<anchored to="attack1" position="right" offset="5,0" width="27" />
-				<modifier>-5</modifier>
-				<name>Attack 2</name>
-				<source><name>attack2modifier</name><op>+</op></source>
-				<script file="campaign/scripts/ammo_attack.lua" />
-			</number_charweaponattacktotal>
-			<number_charweaponattacktotal name="attack3">
-				<anchored to="attack2" position="right" offset="5,0" width="27" />
-				<modifier>-10</modifier>
-				<name>Attack 3</name>
-				<source><name>attack3modifier</name><op>+</op></source>
-				<script file="campaign/scripts/ammo_attack.lua" />
-			</number_charweaponattacktotal>
-			<number_charweaponattacktotal name="attack4">
-				<anchored to="attack3" position="right" offset="5,0" width="27" />
-				<modifier>-15</modifier>
-				<name>Attack 4</name>
-				<source><name>attack4modifier</name><op>+</op></source>
-				<script file="campaign/scripts/ammo_attack.lua" />
-			</number_charweaponattacktotal>
-			
-			<!-- Ranged specific fields -->
+			<buttonc_listitem_base name="button_attack">
+				<!-- <script file="campaign/scripts/ammo_attacks.lua" /> -->
+			</buttonc_listitem_base>		
+			<buttonc_listitem_base name="button_attack1">
+				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
+			</buttonc_listitem_base>
+			<buttonc_listitem_base name="button_attack2">
+				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
+			</buttonc_listitem_base>
+			<buttonc_listitem_base name="button_attack3">
+				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
+			</buttonc_listitem_base>
+			<buttonc_listitem_base name="button_attack4">
+				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
+			</buttonc_listitem_base>
+		</sheetdata>
+	</windowclass>
+	<windowclass name="char_weapon_ranged" merge="join">
+		<sheetdata>
 			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
-				<anchored width="27" height="10">
-					<top parent="name" anchor="bottom" offset="11" />
-					<left offset="2" />
+				<anchored to="label_ammo" width="27" height="10">
+					<top/>
+					<left relation="relative" offset="10" postoffset="10" />
 				</anchored>
 				<state icon="button_load" tooltipres="tooltip_actions_unloaded" />
 				<state icon="button_unload" tooltipres="tooltip_actions_loaded" />
 				<default>0</default>
 				<script file="campaign/scripts/ammo_isloaded.lua" />
 			</buttonfield>
-			<label name="label_range">
-				<anchored width="56">
-					<left offset="33" />
-				</anchored>
-			</label>
-			<label name="label_ammo">
-				<anchored>
-					<left offset="125" />
-				</anchored>
-			</label>
-			<basicnumber name="maxammo">
-				<script file="common/scripts/number_crosslink_unlink.lua" />
-			</basicnumber>
+			<number_content_column name="maxammo">
+				<!-- <script file="common/scripts/number_crosslink_unlink.lua" /> -->
+			</number_content_column>
 			<combobox_ammo name="ammopicker" source="ammunitionmanager.ammopicker">
 				<anchored>
 					<top parent="maxammo" anchor="top" offset="0" />
-					<bottom parent="maxammo" anchor="bottom" offset="2" />
+					<!-- <bottom parent="maxammo" anchor="bottom" offset="2" /> -->
 					<left parent="maxammo" anchor="right" offset="15" />
-					<right parent="attackframe" anchor="right" offset="15" />
 				</anchored>
 				<itemsheetname><string /><field>subtype</field></itemsheetname>
 				<itemsheetname><string /><field>type</field></itemsheetname>
   			</combobox_ammo>
 		</sheetdata>
 	</windowclass>
-	
+
 	<windowclass name="char_weapon_editor" merge="join">
 		<placement>
 			<size width="400" height="470" />
