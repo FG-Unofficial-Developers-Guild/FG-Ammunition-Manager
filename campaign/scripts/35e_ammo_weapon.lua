@@ -74,16 +74,3 @@ function onSingleAttackAction(n, draginfo)
 		return true;
 	end
 end
-
--- function onInit()
--- 	if super and super.onInit then
--- 		super.onInit()
--- 	end
--- 	self.onDataChanged()
--- end
-
--- function onClose()
--- 	if super and super.onClose then
--- 		super.onClose()
--- 	end
--- end
