@@ -24,6 +24,7 @@
 		</sheetdata>
 	</windowclass>
 	<windowclass name="char_weapon_ranged" merge="join">
+		<script file="campaign/scripts/35e_char_weapon_ranged.lua" />
 		<sheetdata>
 			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
 				<anchored to="label_ammo" width="27" height="10">
@@ -36,7 +37,7 @@
 				<script file="campaign/scripts/ammo_isloaded.lua" />
 			</buttonfield>
 			<number_content_column name="maxammo">
-				<!-- <script file="common/scripts/number_crosslink_unlink.lua" /> -->
+				<script file="common/scripts/number_crosslink_unlink.lua" />
 			</number_content_column>
 			<combobox_ammo name="ammopicker" source="ammunitionmanager.ammopicker">
 				<anchored>

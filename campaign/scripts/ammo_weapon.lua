@@ -26,30 +26,9 @@ function onDataChanged()
 	if super and super.onDataChanged then
 		super.onDataChanged()
 	end
-
--- 	local nodeWeapon = getDatabaseNode()
--- 	local nodeAmmoLink = AmmunitionManager.getAmmoNode(nodeWeapon)
--- 	local rActor = ActorManager.resolveActor(DB.getChild(nodeWeapon, '...'))
--- 	local _, bInfiniteAmmo = AmmunitionManager.getAmmoRemaining(rActor, nodeWeapon, nodeAmmoLink)
-
--- 	--	luacheck: globals type
--- 	local bRanged = AmmunitionManager.isWeaponRanged(nodeWeapon)
--- 	label_range.setVisible(bRanged)
--- 	rangeincrement.setVisible(bRanged)
-
--- 	isloaded.setVisible(bRanged and AmmunitionManager.hasLoadAction(nodeWeapon))
--- 	label_ammo.setVisible(bRanged)
--- 	maxammo.setVisible(bRanged)
--- 	ammocounter.setVisible(bRanged and not bInfiniteAmmo and not nodeAmmoLink)
--- 	ammopicker.setComboBoxVisible(bRanged and not bInfiniteAmmo and nodeAmmoLink)
--- 	ammopicker.setComboBoxReadOnly(true)
-
--- 	if not maxammo.setLink then
--- 		return
--- 	end
-
--- 	local nodeLinkedCount = DB.getChild(nodeAmmoLink, AmmunitionManager.sLinkedCount)
--- 	maxammo.setLink(nodeLinkedCount, nodeLinkedCount ~= nil)
+	if sub_ranged.getValue() == "char_weapon_ranged" then
+		sub_ranged.subwindow.onAmmoChanged()
+	end
 end
 
 function onInit()
