@@ -31,19 +31,15 @@ function onDataChanged()
 	end
 end
 
-function onInit()
-	if super and super.onInit then
-		super.onInit()
-	end
-	local sNode = DB.getPath(getDatabaseNode())
-	DB.addHandler(sNode, 'onChildUpdate', onDataChanged)
-	onDataChanged()
-end
+-- function onInit()
+-- 	if super and super.onInit then
+-- 		super.onInit()
+-- 	end
+-- 	self.onDataChanged()
+-- end
 
-function onClose()
-	if super and super.onClose then
-		super.onClose()
-	end
-	local sNode = DB.getPath(getDatabaseNode())
-	DB.removeHandler(sNode, 'onChildUpdate', onDataChanged)
-end
+-- function onClose()
+-- 	if super and super.onClose then
+-- 		super.onClose()
+-- 	end
+-- end
