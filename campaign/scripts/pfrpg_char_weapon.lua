@@ -31,7 +31,8 @@ function isLoaded(nodeWeapon)
 	return false
 end
 
-function canShoot(nodeWeapon)
+--	luacheck: globals canShoot
+function canShoot(rActor, nodeWeapon)
 	local nAmmo, bInfiniteAmmo = AmmunitionManager.getAmmoRemaining(rActor, nodeWeapon, AmmunitionManager.getAmmoNode(nodeWeapon))
 
 	if self.isLoaded(nodeWeapon) and (bInfiniteAmmo or nAmmo > 0) then
@@ -39,13 +40,14 @@ function canShoot(nodeWeapon)
 	end
 end
 
+--	luacheck: globals onFullAttackAction
 function onFullAttackAction(draginfo)
 	local nodeWeapon = getDatabaseNode();
 	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
-	
+
 	local rRolls = {};
 	for i = 1, DB.getValue(nodeWeapon, "attacks", 1) do
-		if canShoot(nodeWeapon) then
+		if canShoot(rActor, nodeWeapon) then
 			rAttack.modifier = self.calcAttackBonus(i);
 			rAttack.order = i;
 			table.insert(rRolls, ActionAttack.getRoll(rActor, rAttack));
@@ -58,18 +60,19 @@ function onFullAttackAction(draginfo)
 			v.sDesc = v.sDesc .. " [FULL]";
 		end
 	end
-	
+
 	ActionsManager.performMultiAction(draginfo, rActor, "attack", rRolls);
 	return true;
 end
 
+--	luacheck: globals onSingleAttackAction
 function onSingleAttackAction(n, draginfo)
 	local nodeWeapon = getDatabaseNode();
 	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
 	rAttack.order = n or 1;
 	rAttack.modifier = self.calcAttackBonus(n or 1);
-	
-	if self.canShoot(nodeWeapon) then
+
+	if self.canShoot(rActor, nodeWeapon) then
 		ActionAttack.performRoll(draginfo, rActor, rAttack);
 		return true;
 	end
