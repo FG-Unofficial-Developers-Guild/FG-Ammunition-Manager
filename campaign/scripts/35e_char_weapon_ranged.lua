@@ -1,5 +1,4 @@
 function onAmmoChanged()
-    Debug.chat("onAmmoChanged")
     local nodeWeapon = getDatabaseNode()
 	local nodeAmmoLink = AmmunitionManager.getAmmoNode(nodeWeapon)
 	local rActor = ActorManager.resolveActor(DB.getChild(nodeWeapon, '...'))
@@ -23,10 +22,4 @@ function onLockModeChanged(bReadOnly)
         super.onLockModeChanged()
     end
     self.onAmmoChanged()
-end
-
-function onInit()
-    if super and super.onInit then
-        super.onInit()
-    end
 end
