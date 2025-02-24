@@ -2,14 +2,24 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
---	luacheck: globals automateAmmo
-function automateAmmo(nodeWeapon)
+-- luacheck: globals onDataChanged maxammo.setLink
+function onDataChanged()
+	if super and super.onDataChanged then
+		super.onDataChanged()
+	end
+	if sub_ranged.getValue() == "char_weapon_ranged" then
+		sub_ranged.subwindow.onAmmoChanged()
+	end
+end
+
+--	luacheck: globals isLoaded
+function isLoaded(nodeWeapon)
 	local nodeAmmoManager = DB.getChild(nodeWeapon, 'ammunitionmanager')
 	local bIsLoaded = DB.getValue(nodeAmmoManager, 'isloaded') == 1
 	DB.setValue(nodeAmmoManager, 'isloaded', 'number', 0)
 
 	if not AmmunitionManager.hasLoadAction(nodeWeapon) or bIsLoaded then
-		return false
+		return true
 	end
 	local rActor = ActorManager.resolveActor(DB.getChild(nodeWeapon, '...'))
 	local sWeaponName = string.lower(DB.getValue(nodeWeapon, 'name', 'ranged weapon'))
@@ -18,16 +28,50 @@ function automateAmmo(nodeWeapon)
 	messagedata.text = string.format(Interface.getString('char_actions_notloaded'), sWeaponName)
 	Comm.deliverChatMessage(messagedata)
 
-	return true
+	return false
 end
 
--- luacheck: globals onDataChanged maxammo.setLink
-function onDataChanged()
-	if super and super.onDataChanged then
-		super.onDataChanged()
+function canShoot(nodeWeapon)
+	local nAmmo, bInfiniteAmmo = AmmunitionManager.getAmmoRemaining(rActor, nodeWeapon, AmmunitionManager.getAmmoNode(nodeWeapon))
+
+	if self.isLoaded(nodeWeapon) and (bInfiniteAmmo or nAmmo > 0) then
+		return true
 	end
-	if sub_ranged.getValue() == "char_weapon_ranged" then
-		sub_ranged.subwindow.onAmmoChanged()
+end
+
+function onFullAttackAction(draginfo)
+	local nodeWeapon = getDatabaseNode();
+	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
+	
+	local rRolls = {};
+	for i = 1, DB.getValue(nodeWeapon, "attacks", 1) do
+		if canShoot(nodeWeapon) then
+			rAttack.modifier = self.calcAttackBonus(i);
+			rAttack.order = i;
+			table.insert(rRolls, ActionAttack.getRoll(rActor, rAttack));
+		else
+			break;
+		end
+	end
+	if not OptionsManager.isOption("RMMT", "off") and (#rRolls > 1) then
+		for _,v in ipairs(rRolls) do
+			v.sDesc = v.sDesc .. " [FULL]";
+		end
+	end
+	
+	ActionsManager.performMultiAction(draginfo, rActor, "attack", rRolls);
+	return true;
+end
+
+function onSingleAttackAction(n, draginfo)
+	local nodeWeapon = getDatabaseNode();
+	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
+	rAttack.order = n or 1;
+	rAttack.modifier = self.calcAttackBonus(n or 1);
+	
+	if self.canShoot(nodeWeapon) then
+		ActionAttack.performRoll(draginfo, rActor, rAttack);
+		return true;
 	end
 end
 

@@ -5,23 +5,6 @@
 <root>
 	<windowclass name="char_weapon" merge="join">
 		<script file="campaign/scripts/ammo_weapon.lua" />
-		<sheetdata>
-			<buttonc_listitem_base name="button_attack">
-				<!-- <script file="campaign/scripts/ammo_attacks.lua" /> -->
-			</buttonc_listitem_base>		
-			<buttonc_listitem_base name="button_attack1">
-				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
-			</buttonc_listitem_base>
-			<buttonc_listitem_base name="button_attack2">
-				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
-			</buttonc_listitem_base>
-			<buttonc_listitem_base name="button_attack3">
-				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
-			</buttonc_listitem_base>
-			<buttonc_listitem_base name="button_attack4">
-				<!-- <script file="campaign/scripts/ammo_attack.lua" /> -->
-			</buttonc_listitem_base>
-		</sheetdata>
 	</windowclass>
 	<windowclass name="char_weapon_ranged" merge="join">
 		<script file="campaign/scripts/35e_char_weapon_ranged.lua" />
