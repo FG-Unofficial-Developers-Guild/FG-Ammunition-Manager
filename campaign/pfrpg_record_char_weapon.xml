@@ -4,10 +4,10 @@
 
 <root>
 	<windowclass name="char_weapon" merge="join">
-		<script file="campaign/scripts/35e_char_weapon.lua" />
+		<script file="campaign/scripts/pfrpg_char_weapon.lua" />
 	</windowclass>
 	<windowclass name="char_weapon_ranged" merge="join">
-		<script file="campaign/scripts/35e_char_weapon_ranged.lua" />
+		<script file="campaign/scripts/pfrpg_char_weapon_ranged.lua" />
 		<sheetdata>
 			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
 				<anchored to="label_ammo" width="27" height="10">
