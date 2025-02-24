@@ -1,3 +1,4 @@
+--	luacheck: globals onAmmoChanged maxammo.setLink
 function onAmmoChanged()
     local nodeWeapon = getDatabaseNode()
 	local nodeAmmoLink = AmmunitionManager.getAmmoNode(nodeWeapon)
@@ -17,6 +18,7 @@ function onAmmoChanged()
 	maxammo.setLink(nodeLinkedCount, nodeLinkedCount ~= nil)
 end
 
+--	luacheck: globals onLockModeChanged
 function onLockModeChanged(bReadOnly)
     if super and super.onLockModeChanged then
         super.onLockModeChanged()
