@@ -12,7 +12,7 @@ function onDataChanged()
 	end
 end
 
---	luacheck: globals isLoaded
+-- luacheck: globals isLoaded
 function isLoaded(nodeWeapon)
 	local nodeAmmoManager = DB.getChild(nodeWeapon, 'ammunitionmanager')
 	local bIsLoaded = DB.getValue(nodeAmmoManager, 'isloaded') == 1
@@ -31,7 +31,7 @@ function isLoaded(nodeWeapon)
 	return false
 end
 
---	luacheck: globals canShoot
+-- luacheck: globals canShoot
 function canShoot(rActor, nodeWeapon)
 	local nAmmo, bInfiniteAmmo = AmmunitionManager.getAmmoRemaining(rActor, nodeWeapon, AmmunitionManager.getAmmoNode(nodeWeapon))
 
@@ -40,7 +40,7 @@ function canShoot(rActor, nodeWeapon)
 	end
 end
 
---	luacheck: globals onFullAttackAction
+-- luacheck: globals onFullAttackAction
 function onFullAttackAction(draginfo)
 	local nodeWeapon = getDatabaseNode();
 	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
@@ -65,7 +65,7 @@ function onFullAttackAction(draginfo)
 	return true;
 end
 
---	luacheck: globals onSingleAttackAction
+-- luacheck: globals onSingleAttackAction
 function onSingleAttackAction(n, draginfo)
 	local nodeWeapon = getDatabaseNode();
 	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
