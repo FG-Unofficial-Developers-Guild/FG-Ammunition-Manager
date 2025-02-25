@@ -34,33 +34,10 @@ function onDamageAction(draginfo)
 	return true
 end
 
---	luacheck: globals setAmmoVis maxammo.setLink
-function setAmmoVis(nodeWeapon, ...)
-	if super and super.setAmmoVis then
-		super.setAmmoVis(nodeWeapon, ...)
-	end
-
-	local bLoading = AmmunitionManager.hasLoadAction(nodeWeapon)
-	isloaded.setVisible(bLoading)
-
-	local nodeAmmoLink = AmmunitionManager.getAmmoNode(nodeWeapon)
-	local bRanged = AmmunitionManager.isWeaponRanged(nodeWeapon)
-	ammocounter.setVisible(bRanged and not nodeAmmoLink)
-	ammopicker.setComboBoxVisible(bRanged and nodeAmmoLink)
-	ammopicker.setComboBoxReadOnly(true)
-
-	local nodeCount
-	if nodeAmmoLink then
-		nodeCount = DB.getChild(nodeAmmoLink, 'count')
-	end
-	maxammo.setLink(nodeCount, nodeCount ~= nil)
-end
-
 --	luacheck: globals onDataChanged_new
 local onDataChanged_old
 function onDataChanged_new(nodeWeapon)
 	onDataChanged_old(nodeWeapon)
-	-- self.setAmmoVis(nodeWeapon)
 	if sub_ranged.getValue() == 'char_weapon_ranged' then
 		sub_ranged.subwindow.onAmmoChanged()
 	end
