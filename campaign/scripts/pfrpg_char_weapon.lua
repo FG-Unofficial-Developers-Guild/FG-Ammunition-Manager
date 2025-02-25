@@ -7,7 +7,7 @@ function onDataChanged()
 	if super and super.onDataChanged then
 		super.onDataChanged()
 	end
-	if sub_ranged.getValue() == "char_weapon_ranged" then
+	if sub_ranged.getValue() == 'char_weapon_ranged' then
 		sub_ranged.subwindow.onAmmoChanged()
 	end
 end
@@ -42,38 +42,38 @@ end
 
 -- luacheck: globals onFullAttackAction
 function onFullAttackAction(draginfo)
-	local nodeWeapon = getDatabaseNode();
-	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
+	local nodeWeapon = getDatabaseNode()
+	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon)
 
-	local rRolls = {};
-	for i = 1, DB.getValue(nodeWeapon, "attacks", 1) do
+	local rRolls = {}
+	for i = 1, DB.getValue(nodeWeapon, 'attacks', 1) do
 		if canShoot(rActor, nodeWeapon) then
-			rAttack.modifier = self.calcAttackBonus(i);
-			rAttack.order = i;
-			table.insert(rRolls, ActionAttack.getRoll(rActor, rAttack));
+			rAttack.modifier = self.calcAttackBonus(i)
+			rAttack.order = i
+			table.insert(rRolls, ActionAttack.getRoll(rActor, rAttack))
 		else
-			break;
+			break
 		end
 	end
-	if not OptionsManager.isOption("RMMT", "off") and (#rRolls > 1) then
-		for _,v in ipairs(rRolls) do
-			v.sDesc = v.sDesc .. " [FULL]";
+	if not OptionsManager.isOption('RMMT', 'off') and (#rRolls > 1) then
+		for _, v in ipairs(rRolls) do
+			v.sDesc = v.sDesc .. ' [FULL]'
 		end
 	end
 
-	ActionsManager.performMultiAction(draginfo, rActor, "attack", rRolls);
-	return true;
+	ActionsManager.performMultiAction(draginfo, rActor, 'attack', rRolls)
+	return true
 end
 
 -- luacheck: globals onSingleAttackAction
 function onSingleAttackAction(n, draginfo)
-	local nodeWeapon = getDatabaseNode();
-	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon);
-	rAttack.order = n or 1;
-	rAttack.modifier = self.calcAttackBonus(n or 1);
+	local nodeWeapon = getDatabaseNode()
+	local rActor, rAttack = CharManager.getWeaponAttackRollStructures(nodeWeapon)
+	rAttack.order = n or 1
+	rAttack.modifier = self.calcAttackBonus(n or 1)
 
 	if self.canShoot(rActor, nodeWeapon) then
-		ActionAttack.performRoll(draginfo, rActor, rAttack);
-		return true;
+		ActionAttack.performRoll(draginfo, rActor, rAttack)
+		return true
 	end
 end

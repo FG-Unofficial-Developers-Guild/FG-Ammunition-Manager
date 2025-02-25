@@ -260,7 +260,7 @@ local function itemizeAmmunitionPackage(nodeItem)
 	local sItemName = DB.getValue(nodeItem, 'name', '')
 	local nPackageCount
 	sItemName, nPackageCount = string.match(sItemName, '^(.-) %((%d+)%)$')
-	sItemName = string.match(sItemName or "", "^(.-)s?$")
+	sItemName = string.match(sItemName or '', '^(.-)s?$')
 	if not nPackageCount then
 		return nodeItem
 	end
