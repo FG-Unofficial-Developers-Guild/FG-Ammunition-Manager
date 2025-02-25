@@ -138,6 +138,6 @@ jobs:
         uses: nebularg/actions-luacheck@v1
         with:
           files: '.'
-          config: https://raw.githubusercontent.com/bmos/FG-luacheck/main/.luacheckrc
+          config: https://raw.githubusercontent.com/FG-Unofficial-Developers-Guild/FG-luacheck/main/.luacheckrc
           args: '--no-color --std +${{ needs.getnames.outputs.extension }}${{ needs.getnames.outputs.author }} --exclude-files .install/*'
           annotate: 'warning'
