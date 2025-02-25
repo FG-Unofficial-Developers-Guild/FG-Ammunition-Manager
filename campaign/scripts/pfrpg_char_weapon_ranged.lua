@@ -21,7 +21,7 @@ end
 -- luacheck: globals onLockModeChanged
 function onLockModeChanged(bReadOnly)
     if super and super.onLockModeChanged then
-        super.onLockModeChanged()
+        super.onLockModeChanged(bReadOnly)
     end
     self.onAmmoChanged()
 end
