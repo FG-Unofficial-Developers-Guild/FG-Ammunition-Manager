@@ -60,7 +60,10 @@ end
 local onDataChanged_old
 function onDataChanged_new(nodeWeapon)
 	onDataChanged_old(nodeWeapon)
-	self.setAmmoVis(nodeWeapon)
+	-- self.setAmmoVis(nodeWeapon)
+	if sub_ranged.getValue() == 'char_weapon_ranged' then
+		sub_ranged.subwindow.onAmmoChanged()
+	end
 end
 
 local onAttackAction_old

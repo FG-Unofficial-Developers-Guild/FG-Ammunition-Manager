@@ -5,31 +5,29 @@
 <root>
 	<windowclass name="char_weapon" merge="join">
 		<script file="campaign/scripts/5e_char_weapon.lua" />
+	</windowclass>
+	
+	<windowclass name="char_weapon_ranged" merge="join">
+		<script file="campaign/scripts/pfrpg_char_weapon_ranged.lua" />
 		<sheetdata>
 			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
-				<anchored width="27" height="10">
-					<top parent="name" anchor="bottom" offset="11" />
-					<left offset="2" />
+				<anchored to="label_ammo" width="27" height="10">
+					<top/>
+					<left relation="relative" offset="10" postoffset="10" />
 				</anchored>
 				<state icon="button_load" tooltipres="tooltip_actions_unloaded" />
 				<state icon="button_unload" tooltipres="tooltip_actions_loaded" />
 				<default>0</default>
 				<script file="campaign/scripts/ammo_isloaded.lua" />
 			</buttonfield>
-			<label name="label_ammo">
-				<anchored>
-					<left offset="125" />
-				</anchored>
-			</label>
-			<basicnumber name="maxammo">
+			<number_content_column name="maxammo">
 				<script file="common/scripts/number_crosslink_unlink.lua" />
-			</basicnumber>
+			</number_content_column>
 			<combobox_ammo name="ammopicker" source="ammunitionmanager.ammopicker">
 				<anchored>
 					<top parent="maxammo" anchor="top" offset="0" />
-					<bottom parent="maxammo" anchor="bottom" offset="2" />
+					<!-- <bottom parent="maxammo" anchor="bottom" offset="2" /> -->
 					<left parent="maxammo" anchor="right" offset="15" />
-					<right parent="attackframe" anchor="right" offset="0" />
 				</anchored>
 				<itemsheetname><string /><field>subtype</field></itemsheetname>
 				<itemsheetname><string /><field>type</field></itemsheetname>
