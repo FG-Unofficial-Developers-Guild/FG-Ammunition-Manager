@@ -34,7 +34,7 @@ function onDamageAction(draginfo)
 	return true
 end
 
---	luacheck: globals onDataChanged_new
+--	luacheck: globals onDataChanged_new sub_ranged.getValue sub_ranged.subwindow.onAmmoChanged
 local onDataChanged_old
 function onDataChanged_new(nodeWeapon)
 	onDataChanged_old(nodeWeapon)
