@@ -1,4 +1,5 @@
-[![Build FG-Usable File](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/release.yml/badge.svg)](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/release.yml) [![Luacheck](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/luacheck.yml/badge.svg)](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/luacheck.yml)
+[![Build FG-Usable File](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/release.yml/badge.svg)](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/release.yml)
+[![Lua Checks](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/lua.yml/badge.svg)](https://github.com/bmos/FG-Ammunition-Manager/actions/workflows/lua.yml)
 
 # Ammunition Manager
 This extension aids in tracking whether some ranged weapons are loaded and assists in ammo tracking for all ranged weapons.
