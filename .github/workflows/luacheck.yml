@@ -133,7 +133,13 @@ jobs:
         with:
           luaVersion: 5.1
 
-    # Process extension code
+      - id: cache-luacheck
+        uses: actions/cache@v4
+        with:
+          path: .luacheckcache
+          key: luacheck-5.1
+
+      # Process extension code
       - name: Running luacheck
         uses: nebularg/actions-luacheck@v1
         with:
