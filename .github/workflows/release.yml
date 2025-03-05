@@ -6,7 +6,7 @@ on:
 
 name: Release Build
 
-permissions: write-all
+permissions: read-all
 
 env:
   EXTENSION: ${{ vars.FORGE_EXTENSION }}
@@ -16,6 +16,11 @@ jobs:
   build:
     name: Create Release
     runs-on: ubuntu-latest
+
+    permissions:
+      attestations: write
+      contents: write
+
     steps:
     - name: Checkout Repo Assets
       uses: actions/checkout@v4
@@ -42,14 +47,20 @@ jobs:
   upload:
     name: Upload to Forge
     runs-on: ubuntu-latest
+    
     needs: build
     if: ${{ vars.FORGE_ITEM_ID != '' }}
+
+    permissions:
+      attestations: write
+      contents: write
+
     steps:
       - name: Checkout FG-Forge-Updater repository
         uses: actions/checkout@v4
         with:
           repository: 'bmos/FG-Forge-Updater'
-          ref: 'v1.1'
+          ref: 'v1.3'
 
       - name: Set up python 3.12
         uses: actions/setup-python@v5
