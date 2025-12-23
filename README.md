@@ -5,12 +5,9 @@
 This extension aids in tracking whether some ranged weapons are loaded and assists in ammo tracking for all ranged weapons.
 
 # Compatibility and Instructions
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) v4.5.0 (2024-02-21).
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) v5.0.0 (2025-11-12).
 
-This extension works with the 3.5E, PFRPG, PFRPG2, 4E, and 5E rulesets.
-When used with 4E, the option "Power: Show item used" must be enabled for ammo tracking to work from the Powers tab (unless the power has the same name as the weapon used).
-
-It used to work for SFRPG, but that has now spun off into its own extension maintained by SoxMax.
+This extension works with the 3.5E, PFRPG, PFRPG2, and 5E rulesets.
 
 # Features
 * Adds a checkbox to the left of the ammo label on the weapons section of the actions tab; this checkbox is only shown for some weapons (those with 'firearm', 'crossbow', 'javelin', 'ballista', 'windlass', 'pistol', 'rifle', or 'loadaction' in the weapon name when using PFRPG). Loading these weapon will post a message to chat to help monitor the action-economy. Attacks attempted with these weapons without loading them first will post a message to chat and the attack will not go through. If you want to disable this on a per-weapon basis, add the weapon property 'noload.'
@@ -25,8 +22,6 @@ It used to work for SFRPG, but that has now spun off into its own extension main
 
 * If used with [Advanced Effects for Pathfinder and 3.5E](https://forge.fantasygrounds.com/shop/items/33/view) or [5E Advanced Effects](https://forge.fantasygrounds.com/shop/items/68/view), "Action Only" effects attached to equipped ammmunition used in an attack will be included in the roll.
 This allowed things like "Magic Arrow; ATK: 1 enhancement" to be added to the arrow effects list and it will only be used to modify the attack when the archer uses **those** arrows (even if those arrows are equipped constantly in the inventory).
-
-* Enabling the "Chat: Show weapon name in results" option will add the weapon name to attack results in chat such as "Attack [16] -> [at Goblin] with Shortsword [HIT]" instead of "Attack [16] -> [at Goblin] [HIT]".
 
 * NOTE: Some modules contain entries like "Arrows (20)". If you have quantity 1 of "Arrows (20)" and select this as your weapon, it will reduce you to quantity 0 of "Arrows (20)". You should instead (in this example) change it to quantity 20 of "Arrow" and divide the weight by 20 as well. I'm not sure why the module authors often ignore this detail, but this is how to work around it.
 
