@@ -5,9 +5,7 @@
 <root>
 	<template name="combobox_ammo">
 		<combobox>
-			<frame>
-				<hidereadonly />
-			</frame>
+			<frame><hidereadonly /></frame>
 			<center />
 			<listdirection>down</listdirection>
 			<listmaxsize>15</listmaxsize>

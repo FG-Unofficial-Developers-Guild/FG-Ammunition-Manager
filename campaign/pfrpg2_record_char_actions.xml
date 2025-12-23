@@ -8,7 +8,7 @@
 		<sheetdata>
 			<number_charweaponfullattack name="attacks">
 				<script file="campaign/scripts/ammo_attacks.lua" />
-			</number_charweaponfullattack>		
+			</number_charweaponfullattack>
 			<number_charweaponattacktotal name="attack1">
 				<script file="campaign/scripts/ammo_attack.lua" />
 			</number_charweaponattacktotal>
@@ -21,7 +21,7 @@
 			<number_charweaponattacktotal name="attack4">
 				<script file="campaign/scripts/ammo_attack.lua" />
 			</number_charweaponattacktotal>
-			
+
 			<!-- Ranged specific fields -->
 			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
 				<anchored width="27" height="10">
@@ -58,7 +58,7 @@
   			</combobox_ammo>
 		</sheetdata>
 	</windowclass>
-	
+
 	<windowclass name="char_weapon_editor" merge="join">
 		<placement>
 			<size width="400" height="470" />
