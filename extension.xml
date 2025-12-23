@@ -6,7 +6,7 @@
 	<properties>
 		<name>Feature: Ammunition Manager</name>
 		<version>4.7</version>
-		<author>bmos (Wil Thieme)</author>
+		<author>bmos (Ramona T)</author>
 		<description>This extension aids in tracking ammunition and whether ranged weapons are loaded.</description>
 		<ruleset>
 			<name>3.5E</name>
