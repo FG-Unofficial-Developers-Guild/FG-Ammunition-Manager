@@ -36,8 +36,8 @@
 		<includefile ruleset="PFRPG|3.5E" source="campaign/pfrpg_record_char_weapon.xml" />
 		<includefile ruleset="PFRPG2|PFRPG2-Legacy" source="campaign/pfrpg2_record_char_actions.xml" />
 		<includefile ruleset="4E" source="campaign/4e_record_char_combat.xml" />
-		<includefile ruleset="5E" source="campaign/5e_record_char_weapon.xml" />
 		<includefile ruleset="4E" source="campaign/4e_record_charmini_main.xml" />
+		<includefile ruleset="5E" source="campaign/5e_record_char_weapon.xml" />
 
 		<includefile source="common/templates.xml" />
 		<includefile source="common/weapon_ammo_window.xml" />
