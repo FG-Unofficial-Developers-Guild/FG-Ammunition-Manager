@@ -51,7 +51,7 @@
 			<subwindow name="weapon_ammo_subwindow" insertafter="header_damage">
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="0" />
-					<left offset="-5" />
+					<left offset="2" />
 					<right offset="2" />
 				</anchored>
 				<class>weapon_ammo_subwindow</class>

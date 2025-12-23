@@ -5,8 +5,8 @@
 <root>
     <windowclass name="weapon_ammo_subwindow">
 		<script file="common/scripts/weapon_ammo_subwindow.lua" />
-        <margins control="8,0,2,0" />
-        <sheetdata>
+		<margins control="0,0,2,0" />
+		<sheetdata>
             <anchor_column name="columnanchor" />
 
 			<header_column name="header_ammo">
