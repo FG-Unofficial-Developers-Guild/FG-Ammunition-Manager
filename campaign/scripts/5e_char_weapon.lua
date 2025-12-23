@@ -23,7 +23,7 @@ function onDamageAction(draginfo)
 	-- bmos adding ammoPath for AmmunitionManager + Advanced Effects integration
 	-- add this in the onDamageAction function of other effects to maintain compatibility
 	if AmmunitionManager then
-		local nodeAmmo = AmmunitionManager.getAmmoNode(nodeWeapon, rActor)
+		local nodeAmmo = AmmunitionManager.getAmmoNode(nodeWeapon)
 		if nodeAmmo then
 			rActor.ammoPath = DB.getPath(nodeAmmo)
 		end

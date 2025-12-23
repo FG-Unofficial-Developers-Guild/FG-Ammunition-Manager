@@ -115,6 +115,7 @@ function getAmmoNode(nodeWeapon)
 		Debug.console(Interface.getString('debug_ammo_noinventoryfound'))
 		return
 	end
+
 	for _, nodeItem in ipairs(DB.getChildList(nodeInventory)) do
 		local sItemName
 		if ItemManager.getIDState(nodeItem) then

@@ -32,13 +32,12 @@ function onInit()
 			super.onInit()
 		end
 
-		local function setListValue_new(sValue)
-			setValue(sValue)
-			setTooltipText(sValue)
-			super.refreshSelectionDisplay()
+		local setValue_old
+		local function setValue_new(sValue)
+			setValue_old(sValue)
 
 			-- save node to weapon node when choosing ammo
-			local nodeWeapon = DB.getChild(getDatabaseNode(), '...')
+			local nodeWeapon = DB.getParent(getDatabaseNode())
 
 			local nodeInventory = DB.getChild(nodeWeapon, '...inventorylist')
 			local nodeAmmoManager = DB.getChild(nodeWeapon, 'ammunitionmanager')
@@ -58,7 +57,8 @@ function onInit()
 			end
 		end
 
-		super.setListValue = setListValue_new
+		setValue_old = super.setValue
+		super.setValue = setValue_new
 	end
 
 	findItems()
