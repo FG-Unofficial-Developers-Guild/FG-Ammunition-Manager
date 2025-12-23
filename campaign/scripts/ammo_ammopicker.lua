@@ -8,12 +8,12 @@ function findItems()
 	local aAutoFill = {}
 	table.insert(aAutoFill, Interface.getString(defaultvalue[1]))
 
-	local nodeInventory = DB.getChild(getDatabaseNode(), '.....inventorylist')
+	local nodeWeapon = window.getDatabaseNode()
+	local nodeInventory = DB.getChild(nodeWeapon, '...inventorylist')
 	if nodeInventory then
 		for _, nodeItem in ipairs(DB.getChildList(nodeInventory)) do
 			if DB.getValue(nodeItem, 'carried', 0) ~= 0 and itemsheetname and type(itemsheetname[1]) == 'table' then
 				local sName = ItemManager.getDisplayName(nodeItem, true)
-				local nodeWeapon = DB.getChild(getDatabaseNode(), '...')
 				for _, v in ipairs(itemsheetname) do
 					if v.field and type(v.field) == 'table' and v.string and AmmunitionManager.isAmmo(nodeItem, nodeWeapon, v.field[1]) then
 						table.insert(aAutoFill, sName)
