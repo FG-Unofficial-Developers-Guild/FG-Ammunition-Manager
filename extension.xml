@@ -26,7 +26,7 @@
 		<loadorder>34</loadorder>
 	</properties>
 
-	<announcement text="https://github.com/bmos/FG-PFRPG-Ammunition-Manager\nAmmunition Manager v4.7:\nThis extension aids in tracking ammunition and whether ranged weapons are loaded." font="emotefont" icon="archery_ammomanager" />
+	<announcement text="https://github.com/bmos/FG-PFRPG-Ammunition-Manager\nAmmunition Manager v4.8:\nThis extension aids in tracking ammunition and whether ranged weapons are loaded." font="emotefont" icon="archery_ammomanager" />
 
 	<base>
 		<!-- Campaign Records -->
