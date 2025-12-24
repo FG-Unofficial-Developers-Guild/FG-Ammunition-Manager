@@ -6,9 +6,6 @@
 	<windowclass name="char_weapon" merge="join">
 		<script file="campaign/scripts/ammo_weapon.lua" />
 		<sheetdata>
-			<number_charweaponfullattack name="attacks">
-				<script file="campaign/scripts/ammo_attacks.lua" />
-			</number_charweaponfullattack>
 			<number_charweaponattacktotal name="attack1">
 				<script file="campaign/scripts/ammo_attack.lua" />
 			</number_charweaponattacktotal>
@@ -16,9 +13,6 @@
 				<script file="campaign/scripts/ammo_attack.lua" />
 			</number_charweaponattacktotal>
 			<number_charweaponattacktotal name="attack3">
-				<script file="campaign/scripts/ammo_attack.lua" />
-			</number_charweaponattacktotal>
-			<number_charweaponattacktotal name="attack4">
 				<script file="campaign/scripts/ammo_attack.lua" />
 			</number_charweaponattacktotal>
 
