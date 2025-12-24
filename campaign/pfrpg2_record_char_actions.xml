@@ -17,16 +17,6 @@
 			</number_charweaponattacktotal>
 
 			<!-- Ranged specific fields -->
-			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
-				<anchored width="27" height="10">
-					<top parent="name" anchor="bottom" offset="11" />
-					<left offset="2" />
-				</anchored>
-				<state icon="button_load" tooltipres="tooltip_actions_unloaded" />
-				<state icon="button_unload" tooltipres="tooltip_actions_loaded" />
-				<default>0</default>
-				<script file="campaign/scripts/ammo_isloaded.lua" />
-			</buttonfield>
 			<label name="label_range">
 				<anchored width="56">
 					<left offset="33" />
@@ -41,15 +31,24 @@
 				<script file="common/scripts/number_crosslink_unlink.lua" />
 			</basicnumber>
 			<combobox_ammo name="ammopicker" source="ammunitionmanager.ammopicker">
-				<anchored>
-					<top parent="maxammo" anchor="top" offset="0" />
-					<bottom parent="maxammo" anchor="bottom" offset="2" />
-					<left parent="maxammo" anchor="right" offset="15" />
-					<right parent="attackframe" anchor="right" offset="0" />
+				<anchored to="maxammo" height="20">
+					<top parent="maxammo" anchor="top" offset="5" />
+					<left relation="relative" anchor="right" offset="15" />
+					<right offset="200" />
 				</anchored>
 				<itemsheetname><string /><field>subtype</field></itemsheetname>
 				<itemsheetname><string /><field>type</field></itemsheetname>
   			</combobox_ammo>
+			<buttonfield name="isloaded" source="ammunitionmanager.isloaded">
+				<anchored to="maxammo" width="27" height="20">
+					<top offset="10" />
+					<left relation="relative" anchor="right" />
+				</anchored>
+				<state icon="button_load" tooltipres="tooltip_actions_unloaded" />
+				<state icon="button_unload" tooltipres="tooltip_actions_loaded" />
+				<default>0</default>
+				<script file="campaign/scripts/ammo_isloaded.lua" />
+			</buttonfield>
 		</sheetdata>
 	</windowclass>
 
@@ -66,11 +65,11 @@
 	<windowclass name="char_weapon_editor_main" merge="join">
 		<script file="campaign/scripts/char_weapon_editor_main.lua" />
 		<sheetdata>
-			<subwindow name="weapon_ammo_subwindow" insertafter="header_damage">
+			<subwindow name="weapon_ammo_subwindow" insertafter="header_effects">
 				<anchored>
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="0" />
-					<left offset="5" />
-					<right offset="5" />
+					<top anchor="bottom" relation="relative" offset="0" />
+					<left offset="0" />
+					<right offset="0" />
 				</anchored>
 				<class>weapon_ammo_subwindow</class>
 				<activate />
