@@ -29,7 +29,7 @@ jobs:
       uses: thedoctor0/zip-release@0.7.6
       with:
         filename: ${{ github.event.repository.name }}${{ env.EXTENSION }}
-        exclusions: '*.git* /*node_modules/* .editorconfig body.md *.psd *.xcf forge-thumbnail.png thumbnail.png *.toml'
+        exclusions: '*.git* /*node_modules/* .editorconfig body.md *.psd *.xcf forge-thumbnail.png thumbnail.png *.toml *.yaml *.yml'
 
     - name: Add ${{ env.EXTENSION }} File to Release
       uses: ncipollo/release-action@v1
